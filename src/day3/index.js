@@ -60,7 +60,7 @@ function App() {
               if (value.includes(text)) {
                 return (
                   <li key={index}>
-                    <ListItem text={value} onDelete={() => onDelete(index)} position={index} />
+                    <ListItem text={value} position={index} onDelete={onDelete} />
                   </li>
                 )
               }

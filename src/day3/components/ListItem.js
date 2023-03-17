@@ -1,4 +1,6 @@
-const ListItem = ({ text, onDelete, position }) => {
+import PropTypes from 'prop-types';
+
+const ListItem = ({ text='', onDelete=()=>{}, position=0 }) => {
   return (
     <div>
       <span>{text}</span>
@@ -7,4 +9,15 @@ const ListItem = ({ text, onDelete, position }) => {
   )
 }
 
+// ListItem.defaultProps = {
+//   text: '',
+//   onDelete: () => {},
+//   position: 0
+// }
+
+ListItem.propTypes = {
+  text: PropTypes.string.isRequired,
+  onDelete: PropTypes.func.isRequired,
+  position: PropTypes.number.isRequired
+}
 export default ListItem;
