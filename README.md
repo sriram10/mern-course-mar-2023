@@ -4,6 +4,19 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Project
+
+### Blogging platform
+- Home page to list all the articles and their meta data(author, created_date)
+- Users can create new accounts and login to their account using their email
+- Users can create their own article and can publish them
+- Anonymous user can read any articles and provide multiple up-votes
+- there will be no comment options for any user
+- there will be draft option to the articles. Drafts won't get listed on the platform
+- Articles will be visible to users only after it gets published
+- Account/Profile page to update user information
+- every article should have a unique url, to easily share them with others
+
 ## Available Scripts
 
 In the project directory, you can run:

@@ -15,6 +15,10 @@
 2. shouldComponentUpdate() => returns boolean and false will stop render
 3. render() => mounts the elements to the DOM (if changed)
 4. getSnapshotBeforeUpdate(props, state) => returns a computed value that is passed down to DidUpdate
-4. componentDidMount(props, state, snapshot) => this gets triggered on every render after mounting
+4. componentDidUpdate(props, state, snapshot) => this gets triggered on every render after mounting
+
+## Unmounting - Class
+1. componentWillUnmount - Just before removing the elements from DOM
+
 
 ![Life Cycle of a Component](https://i.imgur.com/PVPr1dK.jpg)

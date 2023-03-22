@@ -81,6 +81,11 @@ class Day4App extends React.Component {
     return 123;
   }
 
+  componentWillUnmount() {
+    console.log('componentWillUnmount')
+    alert('componentWillUnmount')
+  }
+
   render() {
     const { list, title } = this.state;
     console.log('render day4app')
