@@ -1,5 +1,6 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import { Link, Button, Typography, AppBar, Toolbar } from '@mui/material';
+import queryClient from '../services/queryClient';
 
 const NavBarLink = ({ to, text }) => {
   return (
@@ -34,6 +35,9 @@ function Navigation() {
           Logo
         </Typography>
         <nav>
+          <Button color="inherit" onClick={() => {
+            queryClient.invalidateQueries('all-posts')
+          }}>Refresh Posts</Button>
           <NavBarLink to="/" text="Home" />
           <NavBarLink to="/login" text="Login" />
           <NavBarLink to="/signup" text="Register" />

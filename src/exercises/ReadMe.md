@@ -20,3 +20,10 @@
       - category - dropdown (Technology, Food, Travel) - mandatory
       - author - text - optional
   2. Add validation to the form and log the form details on successful submission
+
+## March 23, 2023
+  1. Create a post method using json-server for creating new posts
+      - Use the data from previous exercises
+      - use Axios to create the post method
+  2. Create a post method to handle sign up
+      - use Axios to handle the post data

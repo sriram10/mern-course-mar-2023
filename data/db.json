@@ -1,0 +1,58 @@
+{
+  "categories": [
+    {
+      "name": "Design",
+      "value": "design"
+    },
+    {
+      "name": "Development",
+      "value": "development"
+    },
+    {
+      "name": "Marketing",
+      "value": "marketing"
+    }
+  ],
+  "posts": [
+    {
+      "id": 64,
+      "title": "104 - Post",
+      "content": "This is the 104 post",
+      "image": "https://robohash.org/104",
+      "author": "John Doe",
+      "createdAt": "2022-01-01T00:00:00.000Z",
+      "updatedAt": "2022-01-01T00:00:00.000Z"
+    },
+    {
+      "title": "108 - Post",
+      "id": 36
+    },
+    {
+      "id": 38,
+      "title": "66 - Post",
+      "content": "This is the 66 post",
+      "image": "https://robohash.org/66",
+      "author": "John Doe",
+      "createdAt": "2022-01-01T00:00:00.000Z",
+      "updatedAt": "2022-01-01T00:00:00.000Z"
+    },
+    {
+      "id": 41,
+      "title": "93 - Post",
+      "content": "This is the 93 post",
+      "image": "https://robohash.org/93",
+      "author": "John Doe",
+      "createdAt": "2022-01-01T00:00:00.000Z",
+      "updatedAt": "2022-01-01T00:00:00.000Z"
+    },
+    {
+      "id": 110,
+      "title": "54 - Post",
+      "content": "This is the 54 post",
+      "image": "https://robohash.org/54",
+      "author": "John Doe",
+      "createdAt": "2022-01-01T00:00:00.000Z",
+      "updatedAt": "2022-01-01T00:00:00.000Z"
+    }
+  ]
+}

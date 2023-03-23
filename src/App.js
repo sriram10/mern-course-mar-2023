@@ -4,12 +4,16 @@ import {
   Routes,
   BrowserRouter,
 } from 'react-router-dom';
+import {
+  QueryClientProvider,
+} from '@tanstack/react-query'
 import Navigation from './components/Navigation';
 import BlogRoot from './blog';
 import SignUp from './blog/pages/signup';
 import SignIn from './blog/pages/signin';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Home from './blog/pages/home';
+import queryClient from './services/queryClient';
 
 const theme = createTheme();
 
@@ -34,18 +38,20 @@ const theme = createTheme();
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <BrowserRouter>
-        <Navigation />
-        <Routes>
-          <Route path='/' element={<BlogRoot />}>
-            <Route index element={<Home />} />
-            <Route path="login" element={<SignIn />} />
-            <Route path="signup" element={<SignUp />} />
-            <Route path="about" element={<h1>About</h1>} />
-            <Route path="*" element={<h1>404 Not Found</h1>} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+      <QueryClientProvider client={queryClient}>
+        <BrowserRouter>
+          <Navigation />
+          <Routes>
+            <Route path='/' element={<BlogRoot />}>
+              <Route index element={<Home />} />
+              <Route path="login" element={<SignIn />} />
+              <Route path="signup" element={<SignUp />} />
+              <Route path="about" element={<h1>About</h1>} />
+              <Route path="*" element={<h1>404 Not Found</h1>} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </QueryClientProvider>
     </ThemeProvider>
   )
 }
