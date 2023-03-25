@@ -14,6 +14,7 @@ import SignIn from './blog/pages/signin';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Home from './blog/pages/home';
 import queryClient from './services/queryClient';
+import TableSection from './day3/TableSection';
 
 const theme = createTheme();
 
@@ -47,6 +48,7 @@ function App() {
               <Route path="login" element={<SignIn />} />
               <Route path="signup" element={<SignUp />} />
               <Route path="about" element={<h1>About</h1>} />
+              <Route path="table" element={<TableSection />} />
               <Route path="*" element={<h1>404 Not Found</h1>} />
             </Route>
           </Routes>

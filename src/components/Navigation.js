@@ -42,6 +42,7 @@ function Navigation() {
           <NavBarLink to="/login" text="Login" />
           <NavBarLink to="/signup" text="Register" />
           <NavBarLink to="/about" text="About" />
+          <NavBarLink to="/table" text="Table Sample" />
         </nav>
         {/* <Button variant="outlined" sx={{ my: 1, mx: 1.5 }}>
           Sign In

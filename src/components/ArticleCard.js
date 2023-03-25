@@ -9,7 +9,7 @@ import UpdateIcon from '@mui/icons-material/Update';
 // import CardMedia from '@mui/material/CardMedia';
 
 const ArticleCard = ({ id, title, body, onDelete, handleUpdate }) => {
-  if (id % 2) throw 'Component Error';
+  // if (id % 2) throw 'Component Error';
   return (
     <Grid item xs={12} md={6}>
       <CardActionArea component="a" href="#">

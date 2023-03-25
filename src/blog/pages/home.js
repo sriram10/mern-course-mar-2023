@@ -2,12 +2,15 @@ import { Button, Container, Grid } from "@mui/material";
 import { useEffect, useState } from "react";
 import ArticleCard from "../../components/ArticleCard";
 import ErrorBoundary from "../../components/ErrorBoundary";
+import Modal from "../../components/Modal";
+import A from "../../ContextSample";
 import apiCall from "../../services/apiCall";
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   const [error, setError] = useState('');
+  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     getAllPosts();
@@ -79,6 +82,7 @@ const Home = () => {
   return (
     <Container maxWidth="lg">
       <h1>Home</h1>
+      <A />
       {
         error?.length > 0 ? <h1>Failed to fetch the data</h1> : null
       }
@@ -88,6 +92,9 @@ const Home = () => {
       <Button onClick={addNewPost}>
         Add New Post
       </Button>
+      <Modal show title='Sample Modal'>
+        <h1>Form to add a new Blog item</h1>
+      </Modal>
       <Grid container spacing={2}>
           {
             data.length > 0 ? (
