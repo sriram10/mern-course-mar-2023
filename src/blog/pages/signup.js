@@ -13,6 +13,10 @@ import Container from '@mui/material/Container';
 // import { useState } from 'react';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
+import useAuth from '../../hooks/useAuth';
+import { Navigate } from 'react-router-dom';
+
+
 
 const formSchema = Yup.object({
   firstName: Yup.string().required('First name is required'),
@@ -22,6 +26,8 @@ const formSchema = Yup.object({
 })
 
 const SignUp = () => {
+  const { authorized } = useAuth()
+
   const {
     values,
     errors,
@@ -35,6 +41,12 @@ const SignUp = () => {
       console.log(formValues);
     },
   });
+
+
+  console.log('SIGNIN', authorized)
+  if (authorized) {
+    return <Navigate to="/" />
+  }
 
   // const [password, setPassword] = useState({
   //   value: '',

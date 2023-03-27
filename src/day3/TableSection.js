@@ -1,4 +1,5 @@
 import { useState } from "react"
+import withAuthorization from "../components/withAuthorization"
 import CustomTable from "./components/CustomTable"
 
 const tableData = [
@@ -49,7 +50,7 @@ const tableData = [
 const TableSection = () => {
   const [rows, setRows] = useState(tableData)
   const [formData, setFormData] = useState({})
-
+  
   const handleAddFormSubmit = (e) => {
     e.preventDefault();
     console.log(formData)
@@ -89,4 +90,4 @@ const TableSection = () => {
   )
 }
 
-export default TableSection;
+export default withAuthorization(TableSection);

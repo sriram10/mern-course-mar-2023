@@ -1,4 +1,13 @@
 {
+  "users": [
+    {
+      "id": 1,
+      "name": "Leanne Graham",
+      "username": "admin",
+      "email": "test@test.com",
+      "password": "test1234"
+    }
+  ],
   "categories": [
     {
       "name": "Design",

@@ -32,7 +32,7 @@ const theme = createTheme();
  * - Login
  * - Register
  * - Details - Some welcome message and child links
- * - Detials/about - some about content
+ * - Details/about - some about content
  * 
  */
 
@@ -49,6 +49,7 @@ function App() {
               <Route path="signup" element={<SignUp />} />
               <Route path="about" element={<h1>About</h1>} />
               <Route path="table" element={<TableSection />} />
+              <Route path="401" element={<h1>Unauthorized access</h1>} />
               <Route path="*" element={<h1>404 Not Found</h1>} />
             </Route>
           </Routes>

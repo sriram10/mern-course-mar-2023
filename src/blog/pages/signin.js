@@ -10,8 +10,44 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import { useQuery } from '@tanstack/react-query';
+import apiCall from '../../services/apiCall';
+import { useState } from 'react';
 
 const SignIn = () => {
+  const [data, setData] = useState({})
+
+  const signinQuery = useQuery({
+    queryKey: ["sign-in"],
+    enabled: Boolean(data.email && data.password),
+    queryFn: async () => {
+      try {
+        const response = await apiCall.get("/users?email=" + data.email + "&password=" + data.password);
+        if (response.data[0]) {
+          const d = {
+            id: response.data[0]?.id,
+            name: response.data[0]?.name,
+            username: response.data[0]?.username,
+            email: response.data[0]?.email,
+          }
+          localStorage.setItem("user", JSON.stringify(d));
+          localStorage.setItem("loggedIn", 1);
+        }
+        else {
+          localStorage.setItem("user", JSON.stringify({}));
+          localStorage.setItem("loggedIn", 0);
+        }
+        setData({})
+        return response.data;
+      } catch (error) {
+        localStorage.setItem("loggedIn", 0);
+        localStorage.setItem("user", JSON.stringify({}));
+        console.log(error);
+        return [];
+      }
+    }
+  })
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -19,6 +55,11 @@ const SignIn = () => {
       email: data.get('email'),
       password: data.get('password'),
     });
+
+    setData({
+      email: data.get('email'),
+      password: data.get('password'),
+    })
   };
 
   return (
@@ -69,7 +110,9 @@ const SignIn = () => {
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
           >
-            Sign In
+            {
+              signinQuery.isLoading ? 'Loading...' : 'Sign In'
+            }
           </Button>
           <Grid container>
             <Grid item xs>

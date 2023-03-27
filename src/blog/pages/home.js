@@ -1,16 +1,20 @@
 import { Button, Container, Grid } from "@mui/material";
 import { useEffect, useState } from "react";
 import ArticleCard from "../../components/ArticleCard";
+import CustomHooks from "../../components/CustomHooks";
 import ErrorBoundary from "../../components/ErrorBoundary";
 import Modal from "../../components/Modal";
+import withAuthorization from "../../components/withAuthorization";
 import A from "../../ContextSample";
+import { useSystemTime } from "../../hooks";
 import apiCall from "../../services/apiCall";
 
-const Home = () => {
+const Home = ({ authorized, user }) => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   const [error, setError] = useState('');
   const [modalOpen, setModalOpen] = useState(false);
+  const time = useSystemTime();
 
   useEffect(() => {
     getAllPosts();
@@ -81,7 +85,9 @@ const Home = () => {
 
   return (
     <Container maxWidth="lg">
-      <h1>Home</h1>
+      <h1>Home {time} </h1>
+      <h2>Login Status: {authorized ? 'Logged IN' : 'Not yet'}</h2>
+      <CustomHooks />
       <A />
       {
         error?.length > 0 ? <h1>Failed to fetch the data</h1> : null
@@ -121,4 +127,4 @@ const Home = () => {
   )
 }
 
-export default Home;
+export default withAuthorization(Home);
