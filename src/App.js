@@ -15,6 +15,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Home from './blog/pages/home';
 import queryClient from './services/queryClient';
 import TableSection from './day3/TableSection';
+import ReduxSample from './redux';
 
 const theme = createTheme();
 
@@ -50,6 +51,7 @@ function App() {
               <Route path="about" element={<h1>About</h1>} />
               <Route path="table" element={<TableSection />} />
               <Route path="401" element={<h1>Unauthorized access</h1>} />
+              <Route path="redux" element={<ReduxSample />} />
               <Route path="*" element={<h1>404 Not Found</h1>} />
             </Route>
           </Routes>
