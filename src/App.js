@@ -4,6 +4,8 @@ import {
   Routes,
   BrowserRouter,
 } from 'react-router-dom';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns'
 import {
   QueryClientProvider,
 } from '@tanstack/react-query'
@@ -16,6 +18,8 @@ import Home from './blog/pages/home';
 import queryClient from './services/queryClient';
 import TableSection from './day3/TableSection';
 import ReduxSample from './redux';
+import HooksExample from './hooksSample';
+import About from './blog/pages/about';
 
 const theme = createTheme();
 
@@ -41,21 +45,24 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <QueryClientProvider client={queryClient}>
-        <BrowserRouter>
-          <Navigation />
-          <Routes>
-            <Route path='/' element={<BlogRoot />}>
-              <Route index element={<Home />} />
-              <Route path="login" element={<SignIn />} />
-              <Route path="signup" element={<SignUp />} />
-              <Route path="about" element={<h1>About</h1>} />
-              <Route path="table" element={<TableSection />} />
-              <Route path="401" element={<h1>Unauthorized access</h1>} />
-              <Route path="redux" element={<ReduxSample />} />
-              <Route path="*" element={<h1>404 Not Found</h1>} />
-            </Route>
-          </Routes>
-        </BrowserRouter>
+        <LocalizationProvider dateAdapter={AdapterDateFns}>
+          <BrowserRouter>
+            <Navigation />
+            <Routes>
+              <Route path='/' element={<BlogRoot />}>
+                <Route index element={<Home />} />
+                <Route path="login" element={<SignIn />} />
+                <Route path="signup" element={<SignUp />} />
+                <Route path="about" element={<About />} />
+                <Route path="table" element={<TableSection />} />
+                <Route path="401" element={<h1>Unauthorized access</h1>} />
+                <Route path="redux" element={<ReduxSample />} />
+                <Route path="hooks" element={<HooksExample />} />
+                <Route path="*" element={<h1>404 Not Found</h1>} />
+              </Route>
+            </Routes>
+          </BrowserRouter>
+        </LocalizationProvider>
       </QueryClientProvider>
     </ThemeProvider>
   )

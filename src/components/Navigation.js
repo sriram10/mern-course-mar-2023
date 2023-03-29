@@ -44,6 +44,7 @@ function Navigation() {
           <NavBarLink to="/about" text="About" />
           <NavBarLink to="/table" text="Table Sample" />
           <NavBarLink to="/redux" text="Redux" />
+          <NavBarLink to="/hooks" text="Hooks" />
         </nav>
         {/* <Button variant="outlined" sx={{ my: 1, mx: 1.5 }}>
           Sign In
