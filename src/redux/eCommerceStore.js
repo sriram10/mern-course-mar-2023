@@ -23,11 +23,11 @@ const cartSlice = createSlice({
       state.splice(action.payload, 1);
     },
     updateCart: (state, action) => {
-      state[action.payload.index] = action.payload.value;
+      // add snippet to update cart items
     },
     clearCart: (state, action) => {
       state.length = 0;
-    }
+    },
   }
 })
 
