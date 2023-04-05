@@ -1,0 +1,4 @@
+2023-04-05T05:02:09.893Z | GET | /posts | localhost:4000
+2023-04-05T05:02:09.967Z | GET | /favicon.ico | localhost:4000
+2023-04-05T05:02:37.813Z | GET | /users | localhost:4000
+2023-04-05T05:02:48.555Z | GET | / | localhost:4000

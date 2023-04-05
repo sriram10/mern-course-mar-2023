@@ -1,6 +1,7 @@
 // Simple HTTP server to handle few req & responses
 const http = require("http");
 const EventEmitter = require("events");
+const logger = require("./logger/logger");
 
 const server = http.createServer()
 const handleRequests = new EventEmitter(); // creating a event emitter instance for "handleRequests"
@@ -34,7 +35,8 @@ server.on('request', (req, res) => {
    * - Headers (Content-Type, Authorization, Accept, Content-Length, ...)
    * - Body
    */
-  console.log(req.url, req.method, req.headers);
+  // console.log(req.url, req.method, req.headers);
+  logger(req)
 
   // Mandatory things in Response
   /**
