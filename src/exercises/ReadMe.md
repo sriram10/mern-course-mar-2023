@@ -42,3 +42,21 @@
       - Add to wishlist (mark item as favourite and add it to wishlist)
       - Wishlist button text has to be updated to "Remove from whishlist" if already added
       - Remove from wishlist (from wishlist page/section)
+
+## April 6, 2023
+  1. Create a node js server using http module and handle the below routes
+      - create a json file with array of objects (article details)
+      - /articles - GET API - to return an array of objects with the following fields
+        - id - number - unique identifier (keep 1,2,3,4,.etc)
+        - title - text - mandatory
+        - short description - text - Optional
+        - content (long text) - mandatory
+        - publish date - date - mandatory
+        - category - dropdown (Technology, Food, Travel) - mandatory
+        - author - text - optional
+  2. Add filter APIs
+      - /articles - POST API - to create a new object with the above fields
+        - this should write the data into the json file
+      - /articles/:id - GET API - to return the object with the above fields
+        eg: /articles/1 - GET API - to return the object with the above fields for article.id=1
+      - /articles/:id - DELETE API - to delete the object with the above fields
