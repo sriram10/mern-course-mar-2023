@@ -1,0 +1,37 @@
+## Sample nodejs server
+  - create a json file called db.json
+  - db.json file should contain an object called articles with list of items // { articles: [] }
+  - articles should be an array of objects
+  - each object should have an id, a name and a price
+  - Read and write data from/to the db.json
+  - create a http server to get the data
+
+## Topics
+- What is NodeJs? => V8+(node-bindings)+libuv
+- Installation & Versioning - even versions are stable & odd versions are dev purpose
+- NodeJS CLI - node-cli
+- REPL & commands (Read Evaluate Print Loop) - .exit
+- Global Object - global is similar to window object in browser but for nodejs
+- Create a Simple NodeJS Server - using http module
+- Async vs Sync
+- Threads - JS is a single threaded and blocking (sync) programming language
+- Callbacks & Callback queues - Error first callbacks
+- How NodeJs Works?
+- Creating web/http Server
+- Making / Handling requests
+- Serving String/JSON/HTML as response
+- Event Loop
+- Understanding EventEmitters
+- Listening Events
+- Handling & Emitting events
+- Introduction to File System (fs) module
+- Directory and Path resolution (__dirname) & __filename
+- Buffers
+- Reading files synchronous & Asynchronous method
+- Writing files synchronous & Asynchronous method
+- Opening a File
+- Understanding Streams
+- Readable & Writable streams
+- Transform streams
+- npm
+- package.json
