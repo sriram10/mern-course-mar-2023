@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 
+// Model
 const masterData = [
   {
     id: 1,
@@ -13,10 +14,17 @@ const masterData = [
     body: 'This is article 2'
   }
 ]
+// MVC pattern
+// Model - View - Controller
+// Model - masterData - array of objects with keys id, title, body
+// View - response types -> JSON & HTML
+// Controller - Business Logic to process the req data(url, body, params, query)
+//   and interact with the model if necessary
 
 // express app object
 const app = express();
 
+// to parse the request body data to json
 app.use(express.json())
 
 // app.use((req, res, next) => {
@@ -77,14 +85,14 @@ app.post('/articles', (req, res) => {
   };
 
   masterData.push(newArticle);
-  res.send({
+  res.json({
     message: 'Article added successfully'
   })
 })
 
 // handle unmatched urls / routes
 app.get('*', (req, res) => {
-  res.status(404).sendFile(path.join(__dirname, './404.html'));
+  res.status(404).sendFile(path.join(__dirname, 'static-files', '404.html'));
 })
 
 // handle unmatched urls / routes
