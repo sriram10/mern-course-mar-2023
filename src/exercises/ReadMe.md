@@ -60,3 +60,31 @@
       - /articles/:id - GET API - to return the object with the above fields
         eg: /articles/1 - GET API - to return the object with the above fields for article.id=1
       - /articles/:id - DELETE API - to delete the object with the above fields
+
+## April 13, 2023
+  1. Create REST API for comment system
+      -GET - /messages/:id - should return a specific message object
+        - id
+        - title
+        - content
+        - author
+        - datetime
+      -GET - /messages/:id/comments - should return an array of comment objects
+        - id
+        - content
+        - author
+        - datetime
+      -POST - /messages/:id/comments - should create a new comment object for the message
+        - id
+        - content
+        - author
+        - datetime
+        - return a proper message object
+        eg., { "message": "comment added" }
+      -DELETE - /messages/:id/comments/:comment_id - should delete a comment object
+        - return a proper message object
+        eg., { "message": "comment deleted" }
+  
+  2. Create a Page to display message and its comments
+      - use Handlebar template engine (or template of your choice)
+      - render a single page with data from express

@@ -3,6 +3,10 @@ const path = require('path');
 const rootController = require('./controllers/root.controller');
 const articlesRouter = require('./routes/articles.router');
 const usersRouter = require('./routes/users.router');
+const dotenv = require('dotenv');
+
+dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
+console.log(process.env.APP_VERSION, process.env.API_VERSION, process.env.NODE_ENV);
 
 // MVC pattern
 // Model - View - Controller
@@ -14,9 +18,36 @@ const usersRouter = require('./routes/users.router');
 // express app object
 const app = express();
 
+// app.set("x-powered-by", false);
+// app.set("case sensitive routing", true);
+app.set('views', '/views'); // default is "/views"
+app.set('view engine', 'hbs');
+
 // to parse the request body data to json
 app.use(express.json())
 app.use(express.static('public'))
+
+app.get('/view', (req, res) => {
+  res.render('index', {
+    pageTitle: 'View Home',
+    header: 'Home Page of View'
+  })
+})
+
+app.get('/about', (req, res) => {
+  res.render('test.html', {
+    pageTitle: 'About Page',
+    header: 'About us'
+  })
+})
+
+app.get('/contact', (req, res) => {
+  res.render('contact', {
+    pageTitle: 'Contact Page',
+    header: 'Contact Us',
+    contactContent: 'Email ID: k8w8@example.com'
+  })
+})
 
 app.use('/home', express.static(path.join(__dirname, 'public')))
 
@@ -40,6 +71,7 @@ app.use('/home', express.static(path.join(__dirname, 'public')))
 //   next();
 //   console.log('Middleware 4: Response');
 // })
+
 
 app.get('/', rootController.getHomePage)
 app.use('/users', usersRouter)
