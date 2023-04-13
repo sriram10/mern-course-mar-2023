@@ -63,25 +63,25 @@
 
 ## April 13, 2023
   1. Create REST API for comment system
-      -GET - /messages/:id - should return a specific message object
+      - GET - /messages/:id - should return a specific message object
         - id
         - title
         - content
         - author
         - datetime
-      -GET - /messages/:id/comments - should return an array of comment objects
+      - GET - /messages/:id/comments - should return an array of comment objects
         - id
         - content
         - author
         - datetime
-      -POST - /messages/:id/comments - should create a new comment object for the message
+      - POST - /messages/:id/comments - should create a new comment object for the message
         - id
         - content
         - author
         - datetime
         - return a proper message object
         eg., { "message": "comment added" }
-      -DELETE - /messages/:id/comments/:comment_id - should delete a comment object
+      - DELETE - /messages/:id/comments/:comment_id - should delete a comment object
         - return a proper message object
         eg., { "message": "comment deleted" }
   
