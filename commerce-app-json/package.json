@@ -1,0 +1,12 @@
+{
+  "name": "commerce-app-json",
+  "version": "1.0.0",
+  "description": "Simple Ecommerce API Server",
+  "scripts": {
+    "client": "npm start --prefix commerce-ui",
+    "server": "npm start --prefix commerce-api"
+  },
+  "keywords": ["ecommerce", "rest-api"],
+  "author": "Sriram",
+  "license": "ISC"
+}
