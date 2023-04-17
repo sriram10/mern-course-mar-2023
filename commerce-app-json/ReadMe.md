@@ -2,7 +2,7 @@
 
 ## App folder structure
 - commerce-ui (Client) (React App)
-  - Create using create-react-app
+  - Create using - Vite
   - package.json
   - src
 - commerce-api (Server) (Express App)
