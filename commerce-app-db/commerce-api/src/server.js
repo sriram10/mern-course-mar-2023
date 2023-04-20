@@ -4,9 +4,10 @@ const cors = require('cors');
 require('dotenv').config({ path: path.join(__dirname, '..', '.env') });
 const morgan = require('morgan');
 const { checkConnection } = require('./config/dbConnection');
+const mongoose = require('mongoose');
 
 const productsRouter = require('./routes/products/products.router');
-const cartRouter = require('./routes/cart/cart.router');
+const cartRouter = require('./routes/cart/cart.mongoose.router');
 const usersRouter = require('./routes/users/users.router');
 
 const PORT = process.env.PORT || 8000;
@@ -28,8 +29,19 @@ app.all('*', (req, res) => {
   })
 })
 
+mongoose.connection.once('open', () => {
+  console.log('Mongoose: Connection Successful');
+})
+
+mongoose.connection.on('error', (err) => {
+  console.log('Mongoose: Error connecting to DB', err);
+})
+
 checkConnection(() => {
-  app.listen(PORT, () => {
+  app.listen(PORT, async () => {
+    await mongoose.connect(process.env.DB_URI, {
+      dbName: process.env.DB_NAME,
+    })
     console.log(`Server Started. Listening on port ${PORT}`);  
   })
 })
