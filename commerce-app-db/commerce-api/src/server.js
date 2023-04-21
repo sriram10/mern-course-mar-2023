@@ -1,6 +1,9 @@
+const fs = require('fs');
+const https = require('https');
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
+const helmet = require('helmet');
 require('dotenv').config({ path: path.join(__dirname, '..', '.env') });
 const morgan = require('morgan');
 const { checkConnection } = require('./config/dbConnection');
@@ -17,6 +20,7 @@ const app = express();
 app.use(cors());
 app.use(express.json()); // parses data posted on any request and store it as an object under req.body
 
+app.use(helmet());
 app.use(morgan('combined'));
 
 app.use('/products', productsRouter);
@@ -36,6 +40,15 @@ mongoose.connection.once('open', () => {
 mongoose.connection.on('error', (err) => {
   console.log('Mongoose: Error connecting to DB', err);
 })
+
+// const server = https.createServer({
+//   key: fs.readFileSync(path.join(__dirname, '..', 'localhost-key.pem')),
+//   cert: fs.readFileSync(path.join(__dirname, '..', 'cert.pem')),
+// }, app)
+
+// server.listen(PORT, () => {
+//   console.log(`Server Started. Listening on port ${PORT}`);  
+// })
 
 checkConnection(() => {
   app.listen(PORT, async () => {
