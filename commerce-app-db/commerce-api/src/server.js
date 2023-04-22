@@ -12,6 +12,7 @@ const mongoose = require('mongoose');
 const productsRouter = require('./routes/products/products.router');
 const cartRouter = require('./routes/cart/cart.mongoose.router');
 const usersRouter = require('./routes/users/users.router');
+const authRouter = require('./routes/auth/auth.router');
 
 const PORT = process.env.PORT || 8000;
 
@@ -26,6 +27,7 @@ app.use(morgan('combined'));
 app.use('/products', productsRouter);
 app.use('/cart', cartRouter);
 app.use('/users', usersRouter);
+app.use('/auth', authRouter);
 
 app.all('*', (req, res) => {
   res.status(404).json({
